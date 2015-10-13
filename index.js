@@ -24,17 +24,27 @@ Cu.import ('resource://gre/modules/osfile.jsm')
 Cu.import ('resource://gre/modules/Task.jsm');
 Cu.import('resource://gre/modules/FileUtils.jsm');
 
-var pomf_url;
+var pomf_uploader;
+var pomf_host;
 
-function update_pomf_url ()
+function update_prefs ()
 {
-    if (prefs.prefHasUserValue ('url'))
+    if (prefs.prefHasUserValue ('uploader'))
     {
-        pomf_url = prefs.getCharPref ('url');
+        pomf_uploader = prefs.getCharPref ('uploader');
     }
     else
     {
-        pomf_url = default_prefs.getCharPref ('url');
+        pomf_uploader = default_prefs.getCharPref ('uploader');
+    }
+
+    if (prefs.prefHasUserValue ('host'))
+    {
+        pomf_uploader = prefs.getCharPref ('host');
+    }
+    else
+    {
+        pomf_uploader = default_prefs.getCharPref ('host');
     }
 }
 
@@ -49,7 +59,7 @@ function open_response_url ()
 
     console.log ('opening ' + uri);
 
-    uri = 'http://a.' + pomf_url + '/' + uri;
+    uri = pomf_host + '/' + uri;
 
     win.gBrowser.selectedTab = win.gBrowser.addTab (uri);
 }
@@ -91,15 +101,15 @@ function save_link (uri)
                                 createInstance ();
             var file        = new File (destination);
 
-            update_pomf_url ();
+            update_prefs ();
 
-            console.log ('pomf url is ' + pomf_url);
+            console.log ('pomf uploader is ' + pomf_uploader);
 
             form_data.append ('files[]', file);
 
             console.log ('uploading ' + destination);
 
-            request.open ('POST', 'http://' + pomf_url + '/upload.php');
+            request.open ('POST', pomf_uploader);
             request.addEventListener ('load', open_response_url);
             request.send (form_data);
         },

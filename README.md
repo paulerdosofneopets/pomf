@@ -12,12 +12,12 @@ Simply open the xpi file in your browser.
 #Usage
 Right click on an image or link and select Link Upload (L) or Image Upload (I).
 
+#Settings
+Set the pomf.se fork information about.config under extensions.pomf.
+
 #Building
 If you wish to build the xpi file yourself, run the following command.
 ```
 jpm xpi
 ```
 Requires that jpm be installed.
-
-#Settings
-Set the URL of the pomf.se fork in about.config under extensions.pomf.url
