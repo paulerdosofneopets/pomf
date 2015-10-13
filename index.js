@@ -40,11 +40,11 @@ function update_prefs ()
 
     if (prefs.prefHasUserValue ('host'))
     {
-        pomf_uploader = prefs.getCharPref ('host');
+        pomf_host = prefs.getCharPref ('host');
     }
     else
     {
-        pomf_uploader = default_prefs.getCharPref ('host');
+        pomf_host = default_prefs.getCharPref ('host');
     }
 }
 
