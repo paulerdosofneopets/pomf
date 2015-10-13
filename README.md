@@ -9,6 +9,9 @@ Please read the LICENSE file.
 #Installation
 Simply open the xpi file in your browser.
 
+#Usage
+Right click on an image or link and select Link Upload (L) or Image Upload (I).
+
 #Building
 If you wish to build the xpi file yourself, run the following command.
 ```
