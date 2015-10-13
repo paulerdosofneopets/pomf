@@ -25,6 +25,7 @@ Cu.import ('resource://gre/modules/Task.jsm');
 Cu.import('resource://gre/modules/FileUtils.jsm');
 
 var pomf_url;
+var pomf_file_url;
 
 function update_pomf_url ()
 {
@@ -35,6 +36,15 @@ function update_pomf_url ()
     else
     {
         pomf_url = default_prefs.getCharPref ('url');
+    }
+
+    if (prefs.prefHasUserValue ('file_url'))
+    {
+        pomf_file_url = prefs.getCharPref ('file_url');
+    }
+    else
+    {
+        pomf_file_url = default_prefs.getCharPref ('file_url');
     }
 }
 
@@ -49,7 +59,7 @@ function open_response_url ()
 
     console.log ('opening ' + uri);
 
-    uri = 'http://a.' + pomf_url + '/' + uri;
+    uri = pomf_file_url + '/' + uri;
 
     win.gBrowser.selectedTab = win.gBrowser.addTab (uri);
 }
@@ -99,7 +109,7 @@ function save_link (uri)
 
             console.log ('uploading ' + destination);
 
-            request.open ('POST', 'http://' + pomf_url + '/upload.php');
+            request.open ('POST', pomf_url + '/upload.php');
             request.addEventListener ('load', open_response_url);
             request.send (form_data);
         },
