@@ -5,7 +5,8 @@ pomf.io
 pomf.hummingbird.moe
 1339.cf
 mixtape.moe
- */
+pantsu.cat
+*/
 
 let { Cc, Ci, Cu, CC }  = require ('chrome');
 var self                = require ('sdk/self');
