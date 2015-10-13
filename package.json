@@ -1,0 +1,12 @@
+{
+  "title": "One-Click Pomf Uploader",
+  "name": "pomf",
+  "version": "0.0.1",
+  "description": "Uploads images and videos to pomf.se clones.",
+  "main": "index.js",
+  "author": "paulerdosofneopets",
+  "engines": {
+    "firefox": ">=38.0a1"
+  },
+  "license": "GPLv3"
+}
