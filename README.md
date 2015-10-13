@@ -15,6 +15,8 @@ Right click on an image or link and select Link Upload (L) or Image Upload (I).
 #Settings
 Set the pomf.se fork information about.config under extensions.pomf.
 
+Some pomf.se clones may keep their uploaders in /static/upload.php
+
 #Building
 If you wish to build the xpi file yourself, run the following command.
 ```
